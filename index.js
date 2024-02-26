@@ -49,7 +49,7 @@ router.post('/user', (req, res)=>{
     }
 )}
 
-/** Metodos websocket */
+/** Metodos websocket*/
 io.on('connect', (socket) => {
     console.log("connected")
     //Escuchando eventos desde el servidor
