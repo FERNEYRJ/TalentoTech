@@ -1,4 +1,4 @@
-/** Configuracion de express */
+/** Configuracion de express **/
 const express = require('express') //Importo la libreria
 const app = express() //Inicializacion de la variable que usara la libreria
 const router = express.Router(); // Enrutar los servicios web
@@ -9,7 +9,7 @@ require('dotenv').config() // Obetenmos las variables de entorno
 const socket = require('socket.io') // Importamos la libreria socket.io
 const http = require('http').Server(app)
 const io = socket(http)
-const UserSchema = require(./models/user.js)
+const UserSchema = require('./models/user.js');
 /** Conexion a BD */
 const DB_URL = process.env.DB_URL || '';
 const mongoose = require('mongoose'); // Importo la libreria mongoose
@@ -37,9 +37,10 @@ router.post('/user', (req, res)=>{
     enail: req.body.email,
     password: req. body. password
 
-    )}
+    })
+})
 
-    user. save(err, data)=>{
+    user. save(err, data);{
 
         if (err) {
             res.send("Me jecute por POST")         
@@ -47,7 +48,7 @@ router.post('/user', (req, res)=>{
             res.send(user)
         }
     }
-)}
+
 
 /** Metodos websocket*/
 io.on('connect', (socket) => {
