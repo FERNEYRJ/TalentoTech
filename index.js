@@ -8,7 +8,7 @@ require('dotenv').config() // Obetenmos las variables de entorno
 /** Web Sockets */
 const socket = require('socket.io') // Importamos la libreria socket.io
 const http = require('http').Server(app)
-const io = socket(http)
+const io = socket("mongodb+srv://ferneyrj573:kHlD36izYmhm5ZbX@express.2uyl5nb.mongodb.net/talentotech")
 
 /** Importar la libreria server de graphQL */
 const { createYoga } = require('graphql-yoga');
@@ -17,41 +17,20 @@ const schema = require('./graphql/schema');
 /** Conexion a BD */
 const DB_URL = process.env.DB_URL || '';
 const mongoose = require('mongoose'); // Importo la libreria mongoose
-mongoose.connect("mongodb+srv://ferneyrj573:kHlD36izYmhm5ZbX@express.2uyl5nb.mongodb.net/talentotech") // Creo la cadena de conexion
+mongoose.connect(DB_URL) // Creo la cadena de conexion
 
 /** Importacion de Rutas */
 const userRoutes = require('./routes/UserRoutes');
 const houseRoutes = require('./routes/HouseRoutes');
 const messageRoutes = require('./routes/MessageRoutes');
-//const MessageSchema = require('./models/User.js');
+
 const MessageSchema = require('./models/Message');
-const e = require('express');
 
 //Metodo [GET, POST, PUT, PATCH, DELETE]
 // Nombre del servicio [/]
 router.get('/', (req, res) => {
     //Informacion a modificar
     res.send("Hello world")
-})
-
-router.post('/user', (req, res)=>{
-
-    let user = UserSchema({
-
-        name: req.body.name,
-        lastneme: req.body.lastneme,
-        email: req.body.email,
-        password: req.body.password
-
-    })
-        user.save((err, data)=>{
-            if(err){
-                res.send("")
-            }else{
-            res.send(user) 
-        }
-        }) 
-
 })
 
 /** Metodos websocket */
