@@ -13,7 +13,7 @@ const UserSchema = require('./models/user.js');
 /** Conexion a BD */
 const DB_URL = process.env.DB_URL || '';
 const mongoose = require('mongoose'); // Importo la libreria mongoose
-mongoose.connect("mongodb+srv://ferneyrj573:kHlD36izYmhm5ZbX@express.2uyl5nb.mongodb.net/t alentotech") // Creo la cadena de conexion
+mongoose.connect("mongodb+srv://ferneyrj573:kHlD36izYmhm5ZbX@express.2uyl5nb.mongodb.net/talentotech") // Creo la cadena de conexion
 
 /** Importacion de Rutas */
 const userRoutes = require('./routes/UserRoutes');
@@ -29,25 +29,25 @@ router.get('/', (req, res) => {
     res.send("Hello world")
 })
 
-router.post('/user', (req, res)=>{
-    //Crear un usuario
-    let user = UserSchema({
-    name: req.body.name,
-    lastnane: req.body. lastname,
-    enail: req.body.email,
-    password: req. body. password
+// router.post('/user', (req, res)=>{
+//     //Crear un usuario
+//     let user = UserSchema({
+//     name: req.body.name,
+//     lastnane: req.body. lastname,
+//     enail: req.body.email,
+//     password: req. body. password
 
-    })
-})
+//     })
+// })
 
-    user. save(err, data);{
+//     user. save(err, data);{
 
-        if (err) {
-            res.send("Me jecute por POST")         
-        }else{
-            res.send(user)
-        }
-    }
+//         if (err) {
+//             res.send("Me jecute por POST")         
+//         }else{
+//             res.send(user)
+//         }
+//     }
 
 
 /** Metodos websocket*/
