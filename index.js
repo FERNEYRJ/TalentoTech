@@ -17,7 +17,7 @@ const schema = require('./graphql/schema');
 /** Conexion a BD */
 const DB_URL = process.env.DB_URL || '';
 const mongoose = require('mongoose'); // Importo la libreria mongoose
-mongoose.connect(DB_URL) // Creo la cadena de conexion
+mongoose.connect("mongodb+srv://ferneyrj573:kHlD36izYmhm5ZbX@express.2uyl5nb.mongodb.net/") // Creo la cadena de conexion
 
 /** Importacion de Rutas */
 const userRoutes = require('./routes/UserRoutes');
