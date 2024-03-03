@@ -23,14 +23,35 @@ mongoose.connect("mongodb+srv://ferneyrj573:kHlD36izYmhm5ZbX@express.2uyl5nb.mon
 const userRoutes = require('./routes/UserRoutes');
 const houseRoutes = require('./routes/HouseRoutes');
 const messageRoutes = require('./routes/MessageRoutes');
-
+//const MessageSchema = require('./models/User.js');
 const MessageSchema = require('./models/Message');
+const e = require('express');
 
 //Metodo [GET, POST, PUT, PATCH, DELETE]
 // Nombre del servicio [/]
 router.get('/', (req, res) => {
     //Informacion a modificar
     res.send("Hello world")
+})
+
+router.post('/user', (req, res)=>{
+
+    let user = UserSchema({
+
+        name: req.body.name,
+        lastneme: req.body.lastneme,
+        email: req.body.email,
+        password: req.body.password
+
+    })
+        user.save((err, data)=>{
+            if(err){
+                res.send("")
+            }else{
+            res.send(user) 
+        }
+        }) 
+
 })
 
 /** Metodos websocket */
