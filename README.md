@@ -1,2 +1,0 @@
-# telentoTech-Express-master
- TalentoTech
