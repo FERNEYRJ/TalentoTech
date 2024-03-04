@@ -13,13 +13,20 @@ mongoose.connect("mongodb+srv://ferneyrj573:kHlD36izYmhm5ZbX@express.2uyl5nb.mon
   console.log("¡Conexión a la base de datos exitosa!");
 });
 
-const MessageSchema = require('./models/User');
+const UserSchema = require('./models/User.js');
 
 app.use (express.urlencoded({extended:true}))
 app.use (express.json())
 
-//Crear el servicio web
-router.get('/test', (req, res)=>{
+router.get('/', (req, res)=>{
+
+    res.send("Hello world")
+})
+
+router.get('/user/:id', (req, res)=>{
+
+    //res.send("Hello world")
+})
 
 
 router.post('/user', (req, res)=>{
@@ -35,10 +42,7 @@ router.post('/user', (req, res)=>{
 
     user. save()
     })
- 
 
-    //res.send("Hello world")
-})
 
 
 // router.post('/user', (req, res)=>{
